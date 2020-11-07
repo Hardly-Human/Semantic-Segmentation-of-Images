@@ -22,6 +22,21 @@ def load_model(model_name):
 	model = gluoncv.model_zoo.get_model(model_name, pretrained = True)
 	return model
 
+def plot_image(model,img):
+	st.warning("Inferencing from Model..")
+	output = model.predict(img)
+	predict = mx.nd.squeeze(mx.nd.argmax(output, 1)).asnumpy()
+	mask = get_color_pallete(predict, 'mhpv1')
+	mask.save('output.png')
+	mmask = mpimg.imread('output.png')
+	image = mpimg.imread('saved_image.jpg')
+
+	st.set_option('deprecation.showPyplotGlobalUse', False)
+	st.success("Pose Estimation Successful!! Plotting Image..")
+    
+	st.image(image,width = 500, height = 500)
+	st.image(mmask,width = 500, height = 500)
+
 
 def main():
 	st.title("Semantic Segmentation App for Images")
@@ -50,7 +65,8 @@ def main():
 		img = image.imread(image_path)
 		img = test_transform(img, ctx)
 		st.success("Loaded Model Succesfully!!🤩👍")
-	
+
+		plot_image(model,img)
 
 
 if __name__ == "__main__":
