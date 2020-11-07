@@ -37,6 +37,13 @@ def plot_image(model,img):
 	st.image(image,width = 500, height = 500)
 	st.image(mmask,width = 500, height = 500)
 
+def footer():
+	st.markdown("""
+	* * *
+	Built with ❤️ by [Rehan uddin](https://hardly-human.github.io/)
+	""")
+	st.success("Rehan uddin (Hardly-Human)👋😉")
+
 
 def main():
 	st.title("Semantic Segmentation App for Images")
@@ -71,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+	footer()
