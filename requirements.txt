@@ -1,0 +1,7 @@
+streamlit
+numpy
+Pillow
+mxnet
+gluoncv
+matplotlib
+opencv-python
