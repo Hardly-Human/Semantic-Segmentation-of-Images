@@ -17,6 +17,10 @@ def load_image(image_file):
 	img = Image.open(image_file)
 	return img
 
+@st.cache(allow_output_mutation=True)
+def load_model(model_name):
+	model = gluoncv.model_zoo.get_model(model_name, pretrained = True)
+	return model
 
 
 def main():
@@ -39,6 +43,14 @@ def main():
 		image2 = rgb_im.save("saved_image.jpg")
 		image_path = "saved_image.jpg"
 		st.image(image1,width = 500, height = 500)
+
+	if st.button("Run Model"):
+		st.warning("Loading Model..🤞")
+		model = load_model('psp_resnet101_ade')
+		img = image.imread(image_path)
+		img = test_transform(img, ctx)
+		st.success("Loaded Model Succesfully!!🤩👍")
+	
 
 
 if __name__ == "__main__":
