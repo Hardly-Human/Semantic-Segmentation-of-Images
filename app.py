@@ -43,16 +43,20 @@ def footer():
 	Built with ❤️ by [Rehan uddin](https://hardly-human.github.io/)
 	""")
 	st.success("Rehan uddin (Hardly-Human)👋😉")
+	st.markdown("### [Give Feedback](https://www.iamrehan.me/forms/feedback_form/feedback_form.html)\
+	 `            `[Report an Issue](https://www.iamrehan.me/forms/report_issue/report_issue.html)")
 
 
 def main():
 	st.title("Semantic Segmentation App for Images")
 	st.text("Built with gluoncv and Streamlit")
-	st.markdown("### [Semantic Segmentation](https://towardsdatascience.com/semantic-segmentation-with-deep-learning-a-guide-and-code-e52fc8958823)\
+	st.markdown("""### [Semantic Segmentation](https://towardsdatascience.com/semantic-segmentation-with-deep-learning-a-guide-and-code-e52fc8958823)\
      `            `[PSPNet](https://towardsdatascience.com/review-pspnet-winner-in-ilsvrc-2016-semantic-segmentation-scene-parsing-e089e5df177d) \
 	 `			  `[[Paper]](https://arxiv.org/abs/1612.01105)\
 	 `			  `[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/Hardly-Human/Semantic-Segmentation-of-Images)\
-	 `            `[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://lbesson.mit-license.org/)")
+	 `            `[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://lbesson.mit-license.org/)""")
+	
+	
 
 	image_file = st.file_uploader("Upload Image", type = ['jpg','png','jpeg'])
 
